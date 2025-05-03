@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { DM_Sans } from 'next/font/google';
+import Header from "@/components/Header";
 
 const dmSans = DM_Sans({ subsets: ['latin'] });
 
@@ -95,90 +96,8 @@ export default function Home() {
 
   return (
     <div className={`${dmSans.className} min-h-screen bg-white`}>
-      <nav className="fixed w-full bg-white shadow-lg z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 lg:px-8">
-          <Link href="/" className="relative w-[180px] h-[80px] -ml-4">
-            <Image
-              src="/logo.png"
-              alt="We Nailed It Media"
-              fill
-              className="object-contain"
-              priority
-            />
-          </Link>
-          <button onClick={() => setIsMenuOpen(true)} className="md:hidden text-black">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-          <div className="hidden md:flex items-center space-x-12">
-            {navigationItems.map((item) => (
-              <Link 
-                key={item.name} 
-                href={item.href}
-                className={`font-['Norwester'] text-lg tracking-wider ${
-                  item.isButton 
-                    ? "px-6 py-2 bg-black text-white hover:bg-black/90" 
-                    : "text-black/80 hover:text-black"
-                } transition-colors`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0 }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 p-8"
-          >
-            <button onClick={() => setIsMenuOpen(false)} className="absolute top-4 right-4 text-black">
-              <CloseIcon />
-            </button>
-            <div className="flex flex-col space-y-8 mt-16">
-              {navigationItems.map((item) => (
-                <Link 
-                  key={item.name} 
-                  href={item.href} 
-                  className={`font-['Norwester'] text-2xl ${
-                    item.isButton ? "text-black-600" : "text-black"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-8 mt-8 border-t border-black/10">
-                <div className="flex space-x-4">
-                  {[
-                    { name: 'facebook', url: 'https://facebook.com/wenaileditmedia' },
-                    { name: 'instagram', url: 'https://instagram.com/wenaileditmedia' }
-                  ].map(social => (
-                    <Link 
-                      key={social.name}
-                      href={social.url}
-                      className="w-10 h-10 border border-black/20 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {socialIcons[social.name as keyof typeof socialIcons]({
-                        className: "w-5 h-5 text-black/70 group-hover:text-black/90 transition-colors"
-                      })}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+      <Header />
+      
       <div className="fixed bottom-6 right-6 z-40">
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -237,112 +156,177 @@ export default function Home() {
       </AnimatePresence>
 
       <main>
-        <section className="min-h-screen relative flex items-center justify-center bg-white">
+        <section className="min-h-screen relative flex items-center justify-center bg-white pt-24">
           <div className="absolute inset-0">
-            <Image 
-              src="/hero-bg.jpg"
-              alt="Hero Background"
-              fill
-              className="object-cover opacity-90"
-              priority
-              quality={100}
-            />
-            <div className="absolute inset-0 bg-white/50" />
+            <div className="absolute inset-0 bg-black/5 z-10" />
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03] z-20" />
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <motion.h1 
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="text-[clamp(2rem,6vw,5rem)] font-['Norwester'] leading-tight text-black mb-8 px-4"
-            >
-              TRANSFORM YOUR<br />BRAND TODAY
-            </motion.h1>
-            <motion.p 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-[clamp(1.25rem,4vw,2rem)] font-['Norwester'] text-black/90 mb-12 max-w-3xl mx-auto px-4"
-            >
-              DELIVERING EXCEPTIONAL DIGITAL SOLUTIONS
-            </motion.p>
+          <div className="relative z-30 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex flex-col gap-8"
+              >
+                <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-['Norwester'] leading-[1.1] text-black">
+                  LET'S BUILD YOUR BRAND—START NOW
+                </h1>
+                <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-['Norwester'] text-black/80">
+                  INNOVATIVE SOLUTIONS FOR YOUR BUSINESS
+                </h2>
+                <p className="text-lg md:text-xl text-black/60 max-w-xl">
+                  Marketing That Sticks. Strategies That Scale. We turn small and medium-sized businesses into brands people can't stop talking about.
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  <div className="flex-1 h-2 bg-black/10 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-black origin-left"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 0.9 }}
+                      transition={{ delay: 0.5, duration: 1 }}
+                    />
+                  </div>
+                  <span className="font-['Norwester'] text-lg">90%</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="flex-1 h-2 bg-black/10 rounded-full overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-black origin-left"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 0.85 }}
+                      transition={{ delay: 0.7, duration: 1 }}
+                    />
+                  </div>
+                  <span className="font-['Norwester'] text-lg">85%</span>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="pt-8"
+                >
+                  <Link href="/contact">
+                    <button className="px-12 py-6 bg-black text-white text-xl font-['Norwester'] tracking-wider hover:bg-black/90 transition-all">
+                      TRY IT FOR FREE
+                    </button>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </div>
+
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col md:flex-row gap-6 justify-center items-center"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative grid grid-cols-2 gap-4 aspect-square max-w-xl mx-auto"
             >
-              <Link href="/contact">
-                <button className="px-12 py-6 bg-black text-white text-xl font-['Norwester'] tracking-wider hover:bg-black/90 transition-all">
-                  START YOUR PROJECT
-                </button>
-              </Link>
-              <Link href="/services">
-                <button className="px-12 py-6 border-2 border-black text-black text-xl font-['Norwester'] tracking-wider hover:bg-black/10 transition-all">
-                  OUR SERVICES
-                </button>
-              </Link>
+              <Image
+                src="/img1.jpg"
+                alt="Business Solutions"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover rounded-lg"
+              />
+              <Image
+                src="/img2.jpg"
+                alt="Digital Marketing"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover rounded-lg mt-8"
+              />
+              <Image
+                src="/img3.jpg"
+                alt="Content Creation"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover rounded-lg -mt-8"
+              />
+              <Image
+                src="/img4.jpg"
+                alt="Brand Strategy"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover rounded-lg"
+              />
             </motion.div>
           </div>
         </section>
 
-        <section className="py-32 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02]" />
-          <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <section className="py-32 bg-black text-white relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-white/5 z-10" />
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.05] z-20" />
+          </div>
+          <div className="max-w-7xl mx-auto px-4 relative z-30">
+            <div className="grid md:grid-cols-2 gap-16 items-start">
               <div>
-                <motion.h2 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="font-['Norwester'] text-4xl md:text-5xl mb-8"
+                  viewport={{ once: true }}
                 >
-                  ELEVATE YOUR BRAND WITH DATA-DRIVEN SOLUTIONS
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-gray-600 text-lg leading-relaxed"
-                >
-                  Partner with us to transform your digital presence through strategic marketing, compelling content, and measurable results.
-                </motion.p>
+                  <span className="text-white/60 font-['Norwester'] text-lg mb-4 block">Our Approach</span>
+                  <h2 className="text-5xl md:text-6xl font-['Norwester'] leading-tight mb-8">
+                    EXPERTISE IN<br />STRATEGY, DESIGN<br />AND DEVELOPMENT
+                  </h2>
+                  <p className="text-white/80 text-lg leading-relaxed mb-12">
+                    Forget boring. Forget forgettable. We Nailed It Media helps brands cut through the noise, get noticed, and grow. We believe in real connections, creative storytelling, and marketing that makes people stop scrolling. Whether it's a social media glow-up, a website that wows, or ads that convert—we help brands nail it every. single. time.
+                  </p>
+                  <Link href="/services">
+                    <motion.button
+                      whileHover={{ x: 10 }}
+                      className="flex items-center space-x-4 group"
+                    >
+                      <span className="font-['Norwester'] text-lg">LEARN MORE</span>
+                      <span className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    </motion.button>
+                  </Link>
+                </motion.div>
               </div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="relative h-[400px] rounded-lg overflow-hidden"
-              >
-                <Image
-                  src="/workspace.jpg"
-                  alt="Our Workspace"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
+
+              <div className="space-y-8">
+                {[
+                  {
+                    title: "AUTHENTICITY",
+                    description: "Authentic strategies tailored to your business goals",
+                    icon: "01"
+                  },
+                  {
+                    title: "STRATEGY",
+                    description: "Boosted visibility and business growth",
+                    icon: "02"
+                  },
+                  {
+                    title: "CUSTOMIZATION",
+                    description: "Custom solutions that reflects your brands unique identity",
+                    icon: "03"
+                  }
+                ].map((feature, i) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.2 }}
+                    className="bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10"
+                  >
+                    <span className="font-['Norwester'] text-white/40 text-sm mb-4 block">{feature.icon}</span>
+                    <h3 className="font-['Norwester'] text-2xl mb-3">{feature.title}</h3>
+                    <p className="text-white/60">{feature.description}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-32 bg-white relative">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="font-['Norwester'] text-5xl mb-16"
-            >
-              LET'S CREATE SOMETHING EXCEPTIONAL
-            </motion.h2>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-12 py-6 bg-black text-white text-xl font-['Norwester'] tracking-wider"
-              >
-                GET STARTED
-              </motion.button>
-            </Link>
-          </div>
-        </section>
       </main>
 
       <footer className="bg-black text-white py-20">
