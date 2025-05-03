@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Gilda_Display, DM_Sans } from 'next/font/google';
 import Link from "next/link";
 import Image from "next/image";
+import { Footer } from "@/components/Footer";
 
 const gilda = Gilda_Display({ weight: '400', subsets: ['latin'] });
 const dmSans = DM_Sans({ subsets: ['latin'] });
@@ -246,91 +247,9 @@ export default function Services() {
         </section>
       </main>
 
-      <footer className="bg-black text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="space-y-6">
-              <Image
-                src="/logo.png"
-                alt="We Nailed It Media"
-                width={140}
-                height={56}
-                className="object-contain brightness-0 invert"
-                priority
-              />
-              <p className="text-gray-400 text-sm">
-                Creating impactful digital experiences through innovative solutions
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Services</h4>
-              <ul className="space-y-4 text-gray-400">
-                {services.map(service => (
-                  <li key={service.id}>
-                    <Link href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`} 
-                      className="hover:text-white transition-colors"
-                    >
-                      {service.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Company</h4>
-              <ul className="space-y-4 text-gray-400">
-                {["About", "Works", "Services", "Contact"].map(item => (
-                  <li key={item}>
-                    <Link href={`/${item.toLowerCase()}`} 
-                      className="hover:text-white transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Connect</h4>
-              <div className="flex space-x-4">
-                {[
-                  { name: 'facebook', url: 'https://facebook.com/wenaileditmedia' },
-                  { name: 'instagram', url: 'https://instagram.com/wenaileditmedia' }
-                ].map(social => (
-                  <Link 
-                    key={social.name}
-                    href={social.url}
-                    className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors group"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {socialIcons[social.name as keyof typeof socialIcons]({
-                      className: "w-5 h-5 text-white/70 group-hover:text-white/90 transition-colors"
-                    })}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} We Nailed It Media. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white text-sm">
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <div className="relative pt-20">
+        <Footer />
+      </div>
     </div>
   );
 }

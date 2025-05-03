@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { DM_Sans } from 'next/font/google';
+import { Footer } from "@/components/Footer";
 
 const dmSans = DM_Sans({ subsets: ['latin'] });
 
@@ -183,89 +184,7 @@ export default function Privacy() {
           </div>
         </main>
 
-        <footer className="bg-black text-white py-20">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-              <div className="space-y-6">
-                <Image
-                  src="/logo.png"
-                  alt="We Nailed It Media"
-                  width={140}
-                  height={56}
-                  className="object-contain brightness-0 invert"
-                  priority
-                />
-                <p className="font-['Gilroy'] text-white/80 text-sm">
-                  Creating impactful digital experiences through innovative solutions
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="font-['Anton'] text-lg mb-6">Services</h4>
-                <ul className="space-y-4 text-gray-400">
-                  {["Social Media", "Content Creation", "Email Marketing", "Web Development"].map(service => (
-                    <li key={service}>
-                      <Link 
-                        href={`/services#${service.toLowerCase().replace(/\s+/g, '-')}`} 
-                        className="font-['Gilroy'] hover:text-white transition-colors"
-                      >
-                        {service}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-['Anton'] text-lg mb-6">Company</h4>
-                <ul className="space-y-4 text-gray-400">
-                  {["About", "Works", "Services", "Contact"].map(item => (
-                    <li key={item}>
-                      <Link href={`/${item.toLowerCase()}`} 
-                        className="font-['Gilroy'] hover:text-white transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-['Anton'] text-lg mb-6">Connect</h4>
-                <div className="flex space-x-4">
-                  {Object.entries(socialIcons).map(([name, Icon]) => (
-                    <Link 
-                      key={name}
-                      href={`https://${name}.com/wenaileditmedia`}
-                      className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="text-white/70 hover:text-white/90 transition-colors">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="font-['Gilroy'] text-gray-400 text-sm">
-                © {new Date().getFullYear()} We Nailed It Media. All rights reserved.
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link href="/privacy" className="font-['Gilroy'] text-gray-400 hover:text-white text-sm">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="font-['Gilroy'] text-gray-400 hover:text-white text-sm">
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
