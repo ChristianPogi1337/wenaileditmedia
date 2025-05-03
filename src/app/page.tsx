@@ -418,7 +418,7 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-6">Company</h4>
               <ul className="space-y-4 text-gray-400">
-                {["About", "Portfolio", "Careers", "Contact"].map(item => (
+                {["About", "Works", "Services", "Contact"].map(item => (
                   <li key={item}>
                     <Link href={`/${item.toLowerCase()}`} 
                       className="hover:text-white transition-colors"

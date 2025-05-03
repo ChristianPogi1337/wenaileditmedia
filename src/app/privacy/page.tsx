@@ -219,7 +219,7 @@ export default function Privacy() {
               <div>
                 <h4 className="font-['Anton'] text-lg mb-6">Company</h4>
                 <ul className="space-y-4 text-gray-400">
-                  {["About", "Portfolio", "Careers", "Contact"].map(item => (
+                  {["About", "Works", "Services", "Contact"].map(item => (
                     <li key={item}>
                       <Link href={`/${item.toLowerCase()}`} 
                         className="font-['Gilroy'] hover:text-white transition-colors"
