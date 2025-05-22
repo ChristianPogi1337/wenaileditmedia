@@ -39,17 +39,32 @@ const team = [
   {
     name: "Pauline Ogbac",
     role: "Founder",
-    image: "/team/ceo.jpg"
+    image: "/team/pauline.png"
   },
   {
     name: "Janille Gabionza",
     role: "Project Manager",
-    image: "/team/creative.jpg"
+    image: "/team/janielle.jpg"
   },
   {
     name: "Joe Gabionza",
     role: "Graphic Designer",
-    image: "/team/marketing.jpg"
+    image: "/team/joe.jpg"
+  },
+  {
+    name: "Jury Gabionza",
+    role: "Content Creator",
+    image: "/team/jury.jpg"
+  },
+  {
+    name: "Angel Leonor",
+    role: "Lead Generation",
+    image: "/team/angel.jpg"
+  },
+  {
+    name: "Christian Emmanuel",
+    role: "Web Developer",
+    image: "/team/webdev.jpg"
   }
 ];
 
@@ -59,151 +74,33 @@ export default function About() {
       <Header />
 
       <main className="pt-24">
-        <section className="relative py-20 md:py-32 overflow-hidden bg-black text-white">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-white/5 z-10" />
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.05] z-20" />
-          </div>
-
-          <div className="max-w-7xl mx-auto px-4 relative z-30">
-            <div className="flex flex-col md:flex-row justify-between items-start gap-16">
-              <div className="max-w-2xl">
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-white/60 font-['Anton'] text-lg mb-4 block"
-                >
-                  ABOUT US
-                </motion.span>
-                <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-6xl md:text-7xl font-['Anton'] leading-[1.1] mb-8"
-                >
-                  WE ARE<br />DIGITAL CRAFTSMEN
-                </motion.h1>
+        <section className="py-20 bg-black text-white">
+          <div className="max-w-6xl mx-auto px-4">
+            <p className="text-lg md:text-xl text-white/80 text-center max-w-3xl mx-auto mb-10" style={{ fontFamily: 'Gilroy, var(--font-opensauce, "Open Sauce", sans-serif)' }}>
+              The name We Nailed It! Media was born out of a desire to honor the collaborative spirit of our team and the high-quality results we deliver to our clients. It’s not just about getting the job done; it’s about exceeding expectations, achieving excellence, and celebrating every milestone we reach together.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-8">
+              <div>
+                <span className="block text-3xl md:text-4xl font-bold font-['Anton']">NOV</span>
+                <span className="block text-sm md:text-base text-white/70">EST 2024</span>
               </div>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-white/60 max-w-lg font-['Gilroy']"
-              >
-                Transforming businesses through innovative digital solutions. We're not just a team, we're your digital growth partners.
-              </motion.p>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
-            >
-              {stats.map((stat, i) => (
-                <div key={stat.label} className="text-center">
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + (i * 0.1) }}
-                    className="block font-['Anton'] text-5xl mb-2"
-                  >
-                    {stat.number}
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 + (i * 0.1) }}
-                    className="text-white/60 font-['Gilroy']"
-                  >
-                    {stat.label}
-                  </motion.span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative h-[600px] rounded-lg overflow-hidden"
-              >
-                <Image
-                  src="/about-image.jpg"
-                  alt="Our Story"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <h2 className="text-4xl font-['Anton']">OUR STORY</h2>
-                <p className="text-black/60 font-['Gilroy'] text-lg leading-relaxed">
-                  Established in November 2024, We Nailed It Media emerges as a dynamic force in digital marketing. Our founder's vision was simple: create a digital agency that combines fresh perspectives with proven strategies to help businesses thrive in the digital age.
-                </p>
-                <p className="text-black/60 font-['Gilroy'] text-lg leading-relaxed">
-                  Though we're new in the industry, our team brings together diverse expertise in digital marketing, design, and development. We're committed to growing alongside our clients and setting new standards in the industry.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-black text-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
-              <h2 className="text-4xl font-['Anton'] mb-6">WHY WORK WITH US?</h2>
-              <p className="text-white/60 font-['Gilroy'] text-lg">
-                Choose a partner who's hungry for success and dedicated to your growth. We bring fresh energy and innovative solutions to every project.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit, i) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10"
-                >
-                  <h3 className="font-['Anton'] text-2xl mb-4">{benefit.title}</h3>
-                  <p className="text-white/60 font-['Gilroy']">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-black text-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl font-['Anton'] text-center mb-16"
-            >
-              MEET OUR TEAM
-            </motion.h2>
-
-            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <span className="block text-3xl md:text-4xl font-bold font-['Anton']">20+</span>
+                <span className="block text-sm md:text-base text-white/70">PROJECTS</span>
+              </div>
+              <div>
+                <span className="block text-3xl md:text-4xl font-bold font-['Anton']">8</span>
+                <span className="block text-sm md:text-base text-white/70">CLIENTS</span>
+              </div>
+              <div>
+                <span className="block text-3xl md:text-4xl font-bold font-['Anton']">100%</span>
+                <span className="block text-sm md:text-base text-white/70">SUCCESS RATE</span>
+              </div>
+            </div>  
+            <p className="text-center text-white/80 mb-12" style={{ fontFamily: 'Gilroy, var(--font-opensauce, "Open Sauce", sans-serif)' }}>
+              Los Angeles Based | Proudly <span className="italic">Filipino</span> Owned & Managed
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {team.map((member, i) => (
                 <motion.div
                   key={member.name}
@@ -213,7 +110,7 @@ export default function About() {
                   transition={{ delay: i * 0.1 }}
                   className="text-center"
                 >
-                  <div className="relative h-[400px] rounded-lg overflow-hidden mb-6">
+                  <div className="relative h-64 w-full rounded-lg overflow-hidden mb-3 mx-auto">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -221,8 +118,8 @@ export default function About() {
                       className="object-cover"
                     />
                   </div>
-                  <h3 className="font-['Anton'] text-2xl mb-2">{member.name}</h3>
-                  <p className="text-white/60 font-['Gilroy']">{member.role}</p>
+                  <h4 className="font-['Anton'] text-lg md:text-xl">{member.role}</h4>
+                  <p className="font-['Gilroy'] text-white/80 text-sm md:text-base">{member.name.toUpperCase()}</p>
                 </motion.div>
               ))}
             </div>

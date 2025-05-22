@@ -162,96 +162,32 @@ export default function Home() {
             <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03] z-20" />
           </div>
           
-          <div className="relative z-30 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex flex-col gap-8"
-              >
-                <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-['Norwester'] leading-[1.1] text-black">
-                  LET'S BUILD YOUR BRAND—START NOW
-                </h1>
-                <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-['Norwester'] text-black/80">
-                  INNOVATIVE SOLUTIONS FOR YOUR BUSINESS
-                </h2>
-                <p className="text-lg md:text-xl text-black/60 max-w-xl">
-                  Marketing That Sticks. Strategies That Scale. We turn small and medium-sized businesses into brands people can't stop talking about.
-                </p>
-                
-                <div className="flex items-center gap-4">
-                  <div className="flex-1 h-2 bg-black/10 rounded-full overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-black origin-left"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 0.9 }}
-                      transition={{ delay: 0.5, duration: 1 }}
-                    />
-                  </div>
-                  <span className="font-['Norwester'] text-lg">90%</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex-1 h-2 bg-black/10 rounded-full overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-black origin-left"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 0.85 }}
-                      transition={{ delay: 0.7, duration: 1 }}
-                    />
-                  </div>
-                  <span className="font-['Norwester'] text-lg">85%</span>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="pt-8"
-                >
-                  <Link href="/contact">
-                    <button className="px-12 py-6 bg-black text-white text-xl font-['Norwester'] tracking-wider hover:bg-black/90 transition-all">
-                      TRY IT FOR FREE
-                    </button>
-                  </Link>
-                </motion.div>
-              </motion.div>
+          <div className="relative z-30 max-w-4xl mx-auto px-4 flex flex-col items-center text-center gap-6 md:gap-10 py-12 md:py-20">
+            <span style={{ fontFamily: 'var(--font-opensauce, "Open Sauce", sans-serif)', fontWeight: 800, fontSize: 44, color: '#111', letterSpacing: '-1px', textTransform: 'uppercase', display: 'block', lineHeight: 1.1, marginBottom: 12 }}>
+              WE NAILED IT! MEDIA
+            </span>
+            <span style={{ fontFamily: 'Rustic Roadway, cursive', fontSize: '2.4rem', display: 'block', lineHeight: 1.2, color: '#222', margin: '0 0 8px 0' }}>
+              is more than a phrase<br />- it’s a mindset
+            </span>
+            <p style={{ fontFamily: 'var(--font-opensauce, "Open Sauce", sans-serif)', fontSize: 19, color: '#222', maxWidth: 700, margin: '0 auto', fontWeight: 400, textAlign: 'center', marginBottom: 0 }}>
+              It embodies pride, success, and accomplishment, which is precisely what we want our clients to feel when they partner with us. Each member of We Nailed It! Media brings unique strengths, ideas, and talents to the table, and the name reflects the collective achievement of the team. It’s a celebration of everyone’s hard work and dedication, reinforcing the idea that when we come together, we always <b>“nail it.”</b>
+            </p>
+            <span style={{ fontFamily: 'var(--font-opensauce, "Open Sauce", sans-serif)', fontSize: 36, fontWeight: 700, color: '#111', letterSpacing: '-0.5px', textTransform: 'uppercase', display: 'block', lineHeight: 1.1, margin: '32px 0 0 0' }}>
+              WE TURN BUSINESSES INTO<br />BRANDS PEOPLE CAN'T STOP<br />TALKING ABOUT.
+            </span>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-8">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} width="110" height="220" viewBox="0 0 120 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="10" width="100" height="220" rx="18" fill="#fff" stroke="#222" strokeWidth="3"/>
+                  <rect x="20" y="40" width="80" height="150" rx="10" fill="#e5e7eb"/>
+                  <ellipse cx="60" cy="180" rx="35" ry="18" fill="#a3e635"/>
+                  <ellipse cx="60" cy="80" rx="35" ry="25" fill="#bae6fd"/>
+                  <ellipse cx="60" cy="120" rx="35" ry="25" fill="#fef9c3"/>
+                  <rect x="50" y="20" width="20" height="6" rx="3" fill="#d1d5db"/>
+                  <circle cx="60" cy="210" r="5" fill="#d1d5db"/>
+                </svg>
+              ))}
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="relative grid grid-cols-2 gap-4 aspect-square max-w-xl mx-auto"
-            >
-              <Image
-                src="/img1.jpg"
-                alt="Business Solutions"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover rounded-lg"
-              />
-              <Image
-                src="/img2.jpg"
-                alt="Digital Marketing"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover rounded-lg mt-8"
-              />
-              <Image
-                src="/img3.jpg"
-                alt="Content Creation"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover rounded-lg -mt-8"
-              />
-              <Image
-                src="/img4.jpg"
-                alt="Brand Strategy"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </motion.div>
           </div>
         </section>
 
@@ -323,6 +259,22 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <h3 className="text-3xl font-bold text-center mb-8" style={{ fontFamily: 'var(--font-opensauce, "Open Sauce", sans-serif)', fontWeight: 700, color: '#111' }}>
+              SELECTED <span className="italic font-normal" style={{ color: '#111' }}>CLIENTS</span>
+            </h3>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              <Image src="/clients/client1.jpg" alt="Buildtuff Construction" width={120} height={60} className="object-contain h-16 w-auto" />
+              <Image src="/clients/client2.PNG" alt="Radiance Home Care Services" width={120} height={60} className="object-contain h-16 w-auto" />
+              <Image src="/clients/client3.png" alt="Optimum Care" width={120} height={60} className="object-contain h-16 w-auto" />
+              <Image src="/clients/client4.png" alt="California Brain & Spine Center" width={120} height={60} className="object-contain h-16 w-auto" />
+              <Image src="/clients/client5.png" alt="Oozoonian Law Corporation" width={120} height={60} className="object-contain h-16 w-auto" />
+              <Image src="/clients/client6.png" alt="Social Space" width={120} height={60} className="object-contain h-16 w-auto" />
             </div>
           </div>
         </section>
@@ -439,7 +391,7 @@ export default function Home() {
           
           <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} We Nailed It Media. All rights reserved.
+              © 2025 We Nailed It Media. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-white text-sm">

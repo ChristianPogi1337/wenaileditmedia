@@ -37,6 +37,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Rustic Roadway';
+  src: url('/fonts/RusticRoadway.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
@@ -116,6 +124,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover-underline:hover::after {
   width: 100%;
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #111;
+  transition: background 0.3s;
+}
+
+.link-underline:hover::after {
+  background: #fff;
 }
 
 @keyframes fadeIn {
